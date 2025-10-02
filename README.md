@@ -56,15 +56,15 @@ https://github.com/moriyakeiichi/chatgpt-fukugyo
 
 1. Google Chromeでリポジトリのトップページにアクセス後、「 `transcribe_pipeline_single.py` 」のリンクをクリックする。
 
-※画像
+![画像](images/01_chatgpt-fukugyo.png)
 
 2. 「`Download raw file`」ボタンをクリックする。
 
-※画像
+![画像](images/02_chatgpt-fukugyo.png)
 
 3. 「**ダウンロード**」フォルダに「`transcribe_pipeline_single.py`」ファイルがあるはずなので、確認する。
 
-※画像
+![画像](images/03_chatgpt-fukugyo.png)
 
 4. **【重要】** その後、音声ファイルの分割場所をメモする前に、PowershellでGemini APIキーをセットします。
 
@@ -120,7 +120,7 @@ python transcribe_pipeline_single.py onseifile.mp3 --splits 5:00 10:00
 一応、バグ報告は **Issues** からお願いします。「**New Issue**」ボタンをクリックすると、
 報告用のダイアログが表示されます。その後、可能な範囲で情報を埋めてお送りください。
 
-※画像
+![画像](images/11_chatgpt-fukugyo.png)
 
 ### もっと早く解決したい場合
 エラーが表示されたとき、最も短時間で解決できる方法は、エラーメッセージをコピーしてChatGPTなどAIのプロンプトに貼り付けてどうすればいいかを尋ねることです。
