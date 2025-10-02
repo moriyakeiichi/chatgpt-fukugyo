@@ -1,0 +1,19 @@
+name: Close stale issues
+on:
+  schedule:
+    - cron: "0 15 * * *"  # 毎日UTC 15:00（日本時間24:00）
+permissions:
+  issues: write
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v9
+        with:
+          days-before-stale: 14
+          days-before-close: 7
+          stale-issue-message: >
+            このIssueは14日間更新がありません。追加情報がなければ7日後に自動クローズされます。
+          close-issue-message: >
+            情報不足のため自動クローズしました。必要情報を揃えて再度ご報告ください。
+          exempt-issue-labels: "pinned,security,enhancement"
