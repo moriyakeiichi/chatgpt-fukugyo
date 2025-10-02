@@ -1,0 +1,9 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Q&A / 使い方の相談（GitHub Discussions）
+    url: https://github.com/moriyakeiichi/chatgpt-fukugyo/discussions
+    about: バグ報告以外はこちらへ
+  - name: README / Troubleshooting
+    url: https://github.com/moriyakeiichi/chatgpt-fukugyo#readme
+    about: まずはこちらをご確認ください
+
