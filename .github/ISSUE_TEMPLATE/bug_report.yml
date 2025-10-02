@@ -1,0 +1,120 @@
+name: バグ報告（再現可能な不具合のみ）
+description: 再現手順とフルログを含むバグ報告はこちら（質問は Discussions へ）
+title: "[bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **⚠️ 注意**  
+        使い方の質問・環境構築の相談は **Discussions** に投稿してください。  
+        このフォームは「再現可能な不具合」の報告専用です。
+  - type: checkboxes
+    id: precheck
+    attributes:
+      label: 事前チェック
+      options:
+        - label: 既存の Issue を検索しました（重複ではありません）
+          required: true
+        - label: README / FAQ / Troubleshooting を確認しました
+          required: true
+        - label: 新しいターミナルで再試行し、同じ問題が再現します
+          required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: OS とエディション
+      placeholder: "例) Windows 11 Pro 23H2 / macOS 15"
+    validations:
+      required: true
+
+  - type: input
+    id: python
+    attributes:
+      label: Python バージョン
+      placeholder: "例) 3.11.9（python --version）"
+    validations:
+      required: true
+
+  - type: textarea
+    id: versions
+    attributes:
+      label: バージョン情報（そのまま貼付）
+      description: |
+        以下の出力を**テキストで**貼り付けてください:
+        - `ffmpeg -version`
+        - `ffprobe -version`
+        - `python -m pip show google-genai`
+      render: shell
+      placeholder: |
+        ffmpeg version ...
+        ffprobe version ...
+        Name: google-genai
+        Version: 1.xx.x
+    validations:
+      required: true
+
+  - type: input
+    id: model
+    attributes:
+      label: 使用モデルID（--modelを指定した場合）
+      placeholder: "例) gemini-2.5-pro"
+
+  - type: textarea
+    id: command
+    attributes:
+      label: 実行コマンド（作業ディレクトリも明記）
+      description: 実行した **完全な** コマンドラインを貼り付けてください
+      render: shell
+      placeholder: |
+        cd C:\projects\audio
+        python transcribe_pipeline_single.py input.mp3 --splits 5:00 10:00 --verbose
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: 再現手順（最小手順）
+      placeholder: |
+        1) C:\projects\audio にファイルを配置
+        2) PowerShellを新規起動し venv を有効化
+        3) 上記コマンドを実行
+        4) xxx というエラーが出る
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期待する結果
+      placeholder: "例) combined_clean.txt が生成される"
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: 実際の結果
+      placeholder: "例) ログ末尾に RuntimeError: GEMINI_API_KEY が未設定 と表示"
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: フルログ（先頭から末尾まで）
+      description: "可能なら `--verbose` 付きの実行ログを**省略せず**貼ってください。"
+      render: shell
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: attachments
+    attributes:
+      label: 添付（任意）
+      description: "必要に応じて、Issue作成後に再現用の短い音声サンプルやスクリーンショットを追加してください。"
+      options:
+        - label: 再現用の短いサンプルを提供できます（任意）
+          required: false
